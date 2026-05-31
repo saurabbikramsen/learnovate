@@ -182,3 +182,19 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+
+@layer utilities {
+  .animate-marquee-left { animation: marqueeLeft 40s linear infinite; }
+  .animate-marquee-right { animation: marqueeRight 40s linear infinite; }
+  .marquee-pause:hover .animate-marquee-left,
+  .marquee-pause:hover .animate-marquee-right { animation-play-state: paused; }
+}
+
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}

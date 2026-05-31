@@ -3,14 +3,18 @@ import { Menu, X, GraduationCap } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { hash: "home", label: "Home" },
-  { hash: "about", label: "About" },
-  { hash: "countries", label: "Countries" },
-  { hash: "services", label: "Services" },
-  { hash: "testimonials", label: "Testimonials" },
-  { hash: "faq", label: "FAQ" },
-  { hash: "contact", label: "Contact" },
+type NavLink =
+  | { kind: "hash"; hash: string; label: string }
+  | { kind: "route"; to: string; label: string };
+
+const links: NavLink[] = [
+  { kind: "hash", hash: "home", label: "Home" },
+  { kind: "hash", hash: "about", label: "About" },
+  { kind: "hash", hash: "countries", label: "Countries" },
+  { kind: "hash", hash: "services", label: "Services" },
+  { kind: "hash", hash: "testimonials", label: "Testimonials" },
+  { kind: "hash", hash: "faq", label: "FAQ" },
+  { kind: "route", to: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -39,25 +43,22 @@ export function Navbar() {
             <GraduationCap className="h-5 w-5" />
           </span>
           <span className="text-foreground">
-            Learn<span className="text-primary">vate</span>
+            Learno<span className="text-primary">vate</span>
           </span>
         </Link>
         <ul className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <li key={l.hash}>
-              <Link
-                to="/"
-                hash={l.hash}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {l.label}
-              </Link>
+            <li key={l.label}>
+              {l.kind === "hash" ? (
+                <Link to="/" hash={l.hash} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">{l.label}</Link>
+              ) : (
+                <Link to={l.to} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">{l.label}</Link>
+              )}
             </li>
           ))}
         </ul>
         <Link
-          to="/"
-          hash="contact"
+          to="/contact"
           className="hidden lg:inline-flex items-center justify-center rounded-full bg-mint text-mint-foreground px-5 py-2.5 text-sm font-bold hover:scale-[1.03] transition-transform"
         >
           Free Consultation
@@ -74,24 +75,16 @@ export function Navbar() {
         <div className="lg:hidden bg-background border-t border-border animate-fade-in-up">
           <ul className="px-4 py-4 space-y-2">
             {links.map((l) => (
-              <li key={l.hash}>
-                <Link
-                  to="/"
-                  hash={l.hash}
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary"
-                >
-                  {l.label}
-                </Link>
+              <li key={l.label}>
+                {l.kind === "hash" ? (
+                  <Link to="/" hash={l.hash} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary">{l.label}</Link>
+                ) : (
+                  <Link to={l.to} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary">{l.label}</Link>
+                )}
               </li>
             ))}
             <li>
-              <Link
-                to="/"
-                hash="contact"
-                onClick={() => setOpen(false)}
-                className="block px-3 py-2 rounded-md bg-primary text-primary-foreground text-center font-semibold"
-              >
+              <Link to="/contact" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md bg-primary text-primary-foreground text-center font-semibold">
                 Free Consultation
               </Link>
             </li>

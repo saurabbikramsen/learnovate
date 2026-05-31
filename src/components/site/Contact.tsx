@@ -17,17 +17,35 @@ function Field({ label, name, type = "text", placeholder, required }: { label: s
   );
 }
 
+// TODO: Replace with your Google Sheets / Apps Script web app endpoint.
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyyTPjnSDw_FMU6por18UKH7-EaYtIzWlqpyXHh6VZHH3kmQf2Zl6WJYD8yfujqK6otHg/exec";
+
 export function Contact() {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload: Record<string, string> = {};
+    data.forEach((v, k) => (payload[k] = String(v)));
+    console.log("data: ", data)
+
+    try {
+      await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       toast.success("Thanks! We'll reach out within 24 hours.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+      form.reset();
+    } catch {
+      toast.error("Couldn't send right now. Please WhatsApp us instead.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

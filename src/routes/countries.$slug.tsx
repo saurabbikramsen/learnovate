@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Calendar, GraduationCap, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, GraduationCap, MapPin, Briefcase, Wallet, Clock, Languages, Building2, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -128,6 +128,36 @@ function CountryPage() {
         </div>
       </section>
 
+      {/* Country at a glance */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-12">
+            <span className="text-sm font-semibold uppercase tracking-widest text-primary">Country Snapshot</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">{country.name} at a glance</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: Building2, label: "Capital", value: country.capital },
+              { icon: Languages, label: "Language", value: country.language },
+              { icon: Wallet, label: "Currency", value: country.currency },
+              { icon: GraduationCap, label: "Tuition Range", value: country.tuitionRange },
+              { icon: MapPin, label: "Living Cost", value: country.livingCost },
+              { icon: Clock, label: "Work While Studying", value: country.workHours },
+            ].filter((f) => f.value).map((f) => (
+              <div key={f.label} className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border shadow-card hover-lift">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary border border-border shrink-0">
+                  <f.icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">{f.label}</div>
+                  <div className="font-semibold text-foreground mt-1">{f.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Highlights */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,8 +176,104 @@ function CountryPage() {
         </div>
       </section>
 
-      {/* Popular courses */}
+      {/* Opportunities */}
+      {country.opportunities && (
+        <section className="py-20 bg-soft">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl mb-12">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">Opportunities</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Career & immigration pathways</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {country.opportunities.map((o: { title: string; desc: string }) => (
+                <div key={o.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover-lift">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary border border-border mb-4">
+                    <Briefcase className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-bold text-lg text-foreground mb-2">{o.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{o.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Course details table */}
+      {country.courseDetails && (
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl mb-10">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">Top Programs</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Featured courses & fees</h2>
+            </div>
+            <div className="grid lg:grid-cols-3 gap-5">
+              {country.courseDetails.map((c: { name: string; level: string; duration: string; avgFee: string; careers: string }) => (
+                <div key={c.name} className="p-6 rounded-2xl bg-card border border-border shadow-card hover-lift">
+                  <div className="flex items-center gap-2 mb-3 text-xs">
+                    <span className="px-2.5 py-1 rounded-full bg-accent text-primary font-semibold">{c.level}</span>
+                    <span className="px-2.5 py-1 rounded-full border border-border text-muted-foreground">{c.duration}</span>
+                  </div>
+                  <h3 className="font-bold text-lg text-foreground mb-3">{c.name}</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between border-b border-border pb-2">
+                      <span className="text-muted-foreground">Avg fee</span>
+                      <span className="font-semibold text-foreground">{c.avgFee}</span>
+                    </div>
+                    <div>
+                      <div className="text-muted-foreground text-xs uppercase tracking-wide mb-1">Career outcomes</div>
+                      <div className="text-foreground/80">{c.careers}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Top universities + Requirements */}
       <section className="py-20 bg-soft">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
+          {country.topUniversities && (
+            <div className="p-8 rounded-2xl bg-card border border-border shadow-card">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">Partner Universities</span>
+              <h3 className="text-2xl font-bold mt-2 mb-5 text-foreground">Where our students study</h3>
+              <ul className="space-y-3">
+                {country.topUniversities.map((u: string) => (
+                  <li key={u} className="flex items-start gap-3">
+                    <Building2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                    <span className="text-foreground/85">{u}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {country.requirements && (
+            <div className="p-8 rounded-2xl bg-card border border-border shadow-card">
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">Admission Requirements</span>
+              <h3 className="text-2xl font-bold mt-2 mb-5 text-foreground">What you'll need</h3>
+              <ul className="space-y-3">
+                {country.requirements.map((r: string) => (
+                  <li key={r} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                    <span className="text-foreground/85">{r}</span>
+                  </li>
+                ))}
+              </ul>
+              {country.postStudyWork && (
+                <div className="mt-6 p-4 rounded-xl bg-accent/60 border border-border">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-primary">Post-Study Work</div>
+                  <div className="font-semibold text-foreground mt-1">{country.postStudyWork}</div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Popular courses */}
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-10">
             <span className="text-sm font-semibold uppercase tracking-widest text-primary">Popular Courses</span>

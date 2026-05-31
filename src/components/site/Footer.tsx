@@ -19,7 +19,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {["About", "Countries", "Services", "FAQ", "Contact"].map(l => (
+              {["About","Countries","Services","FAQ","Contact"].map(l => (
                 <li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-primary transition-colors">{l}</a></li>
               ))}
             </ul>
