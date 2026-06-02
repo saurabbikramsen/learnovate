@@ -18,7 +18,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Speak to our Pokhara-based counsellors for personalised scholarship, course & visa guidance — IELTS, PTE, Duolingo and entrance prep all under one roof.
+              Speak to our Pokhara-based counsellors for personalised scholarship, course and visa guidance — IELTS, PTE, Duolingo and overseas university placement, all under one roof.
             </p>
 
             {/* CTA card — light, no hard color background */}

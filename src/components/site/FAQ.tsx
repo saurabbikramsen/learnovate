@@ -6,9 +6,8 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "Where is Learnovate located?", a: "Our office is in Pokhara, Nepal. Walk in any working day or call us at 061-586088 / 9856082953 to book a free counseling session." },
+  { q: "Where is Learnovate located?", a: "Our office is at Mahendrapool-4, Pokhara, Nepal — opposite to Hulak Bhawan. Walk in any working day or call us at 061-586088 / 9856082953 to book a free counseling session." },
   { q: "Which language tests do you prepare students for?", a: "We run regular IELTS, PTE and Duolingo English Test preparation classes — often with seasonal bumper discount offers. Our faculty are experienced and highly qualified." },
-  { q: "Do you offer entrance preparation for Forestry, Agriculture and Veterinary?", a: "Yes — these are some of our flagship courses. We have a dedicated track for Forestry, Agriculture and Veterinary entrance exams with focused materials and mock tests." },
   { q: "Which universities and countries do you place students in?", a: "We have direct guidance for international universities such as CQ University, plus active placements in Australia, UK, USA, Canada, New Zealand, Japan, South Korea and more." },
   { q: "Is Learnovate a registered consultancy?", a: "Yes. Learnovate Int'l Education Consultant is a registered member of the Educational Consultancies Association of Nepal (ECAN)." },
   { q: "Is the initial counseling really free?", a: "Absolutely. Your first counseling session is completely free — we believe in earning your trust before anything else." },

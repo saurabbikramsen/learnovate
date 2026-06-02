@@ -4,6 +4,7 @@ import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { Countries } from "@/components/site/Countries";
 import { Services } from "@/components/site/Services";
+import { Team } from "@/components/site/Team";
 import { Testimonials } from "@/components/site/Testimonials";
 import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
@@ -16,9 +17,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Learnovate Int'l Education Consultant — Pokhara, Nepal" },
-      { name: "description", content: "ECAN-registered consultancy in Pokhara offering IELTS, PTE, Duolingo prep, Forestry/Agriculture/Veterinary entrance coaching, and overseas university placements." },
+      { name: "description", content: "ECAN-registered consultancy at Mahendrapool-4, Pokhara, offering IELTS, PTE, Duolingo prep, scholarship support and overseas university placements." },
       { property: "og:title", content: "Learnovate — Study Abroad & Test Prep in Pokhara" },
-      { property: "og:description", content: "IELTS · PTE · Duolingo · Forestry, Agriculture & Veterinary entrance prep · International university placements. ECAN registered." },
+      { property: "og:description", content: "IELTS · PTE · Duolingo · International university placements · Visa support. ECAN registered." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/")({
           description: "ECAN-registered education and visa consultancy in Pokhara, Nepal.",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "Mahendrapool-4 (opposite Hulak Bhawan)",
             addressLocality: "Pokhara",
             addressCountry: "NP",
           },
@@ -52,6 +54,7 @@ function Index() {
       <About />
       <Countries />
       <Services />
+      <Team />
       <Testimonials />
       <FAQ />
       <Contact />

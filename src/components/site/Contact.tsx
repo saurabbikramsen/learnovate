@@ -18,7 +18,7 @@ function Field({ label, name, type = "text", placeholder, required }: { label: s
 }
 
 // TODO: Replace with your Google Sheets / Apps Script web app endpoint.
-const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyyTPjnSDw_FMU6por18UKH7-EaYtIzWlqpyXHh6VZHH3kmQf2Zl6WJYD8yfujqK6otHg/exec";
+const FORM_ENDPOINT = "https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec";
 
 export function Contact() {
   const [loading, setLoading] = useState(false);
@@ -30,8 +30,6 @@ export function Contact() {
     const data = new FormData(form);
     const payload: Record<string, string> = {};
     data.forEach((v, k) => (payload[k] = String(v)));
-    console.log("data: ", data)
-
     try {
       await fetch(FORM_ENDPOINT, {
         method: "POST",
@@ -93,7 +91,7 @@ export function Contact() {
                 defaultValue=""
               >
                 <option value="" disabled>Select a country</option>
-                {["Australia", "UK", "USA", "Canada", "Germany", "New Zealand", "Japan", "Korea", "Other"].map(c => <option key={c}>{c}</option>)}
+                {["Australia","UK","USA","Canada","Germany","New Zealand","Japan","Korea","Other"].map(c => <option key={c}>{c}</option>)}
               </select>
             </div>
             <div>

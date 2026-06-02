@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as CountriesSlugRouteImport } from './routes/countries.$slug'
 
@@ -22,6 +23,11 @@ const ContactRoute = ContactRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSlugRoute = TeamSlugRouteImport.update({
+  id: '/team/$slug',
+  path: '/team/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/team/$slug': typeof TeamSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/countries/$slug' | '/services/$slug'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/countries/$slug'
+    | '/services/$slug'
+    | '/team/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/countries/$slug' | '/services/$slug'
-  id: '__root__' | '/' | '/contact' | '/countries/$slug' | '/services/$slug'
+  to: '/' | '/contact' | '/countries/$slug' | '/services/$slug' | '/team/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/countries/$slug'
+    | '/services/$slug'
+    | '/team/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +87,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CountriesSlugRoute: typeof CountriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
+  TeamSlugRoute: typeof TeamSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -83,6 +104,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/$slug': {
+      id: '/team/$slug'
+      path: '/team/$slug'
+      fullPath: '/team/$slug'
+      preLoaderRoute: typeof TeamSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/$slug': {
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CountriesSlugRoute: CountriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
+  TeamSlugRoute: TeamSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

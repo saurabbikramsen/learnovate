@@ -11,10 +11,10 @@ const rowOne: T[] = [
 ];
 
 const rowTwo: T[] = [
-  { name: "Ramesh Adhikari", country: "BSc Forestry Entrance Topper", text: "The Forestry entrance prep was incredibly structured. I cracked the exam on my first attempt.", rating: 5, avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=70" },
+  { name: "Ramesh Adhikari", country: "University of Roehampton, UK", text: "Learnovate's UK team handled my CAS and Personal Statement perfectly. I'm now studying in London on a partial scholarship.", rating: 5, avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=70" },
   { name: "Sushmita Poudel", country: "Federation University, Australia", text: "From SOP drafting to pre-departure briefing, the team treated me like family. Highly recommended.", rating: 5, avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=70" },
   { name: "Niraj Bhattarai", country: "AUT, New Zealand", text: "Visa rejected once with another agency. Learnovate re-built my file properly and I got approved in 6 weeks.", rating: 5, avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=70" },
-  { name: "Aastha Lamichhane", country: "Veterinary Entrance Selected", text: "Best entrance coaching in Pokhara — the mock tests and revision class made all the difference.", rating: 5, avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&auto=format&fit=crop&q=70" },
+  { name: "Aastha Lamichhane", country: "Ulster University, UK", text: "Friendly counsellors, transparent process and zero false promises. My UK student visa was approved within weeks.", rating: 5, avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&auto=format&fit=crop&q=70" },
   { name: "Saurav Pandey", country: "MS in CS, USA", text: "Got into a top US university with a tuition waiver. The SOP review sessions were a game changer.", rating: 5, avatar: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&auto=format&fit=crop&q=70" },
 ];
 

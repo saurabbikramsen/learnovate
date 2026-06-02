@@ -42,35 +42,6 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "entrance-preparation",
-    title: "Forestry · Agriculture · Veterinary Entrance",
-    short: "Specialized coaching for Forestry, Agriculture and Veterinary entrance exams.",
-    intro:
-      "Our entrance coaching is the most consistent in Pokhara — many of our students top the merit list. We cover the full syllabus (Botany, Zoology, Chemistry, Physics, English, GK) with curated notes, daily quizzes and weekly mocks.",
-    img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1600&auto=format&fit=crop&q=70",
-    icon: "Sprout",
-    whatYouGet: [
-      "Complete syllabus coverage with subject specialists",
-      "Daily MCQ quizzes with rank tracking",
-      "30+ chapter-wise tests and 10+ full mock exams",
-      "Printed Learnovate handouts and previous-year question banks",
-      "Doubt-clearing sessions every Saturday",
-      "Counselling for college selection after results",
-    ],
-    process: [
-      { step: "Enrollment", desc: "Join a 3 / 6 month batch based on your exam date." },
-      { step: "Foundation", desc: "Strengthen +2 concepts in Botany, Zoology, Chemistry & Physics." },
-      { step: "Application", desc: "Chapter-wise MCQ drills, daily revision quizzes." },
-      { step: "Mock Phase", desc: "10+ full-length tests with merit-list ranking." },
-      { step: "Final Sprint", desc: "Past-paper marathon and confidence sessions." },
-    ],
-    faqs: [
-      { q: "Which exams do you prepare for?", a: "AFU (Forestry, Agriculture, Veterinary), IAAS, NPI, and other +2 science entrance exams." },
-      { q: "Do you provide study material?", a: "Yes — all printed notes, MCQ books and past-question sets are included." },
-      { q: "What's the average success rate?", a: "Learnovate students have consistently topped AFU merit lists over the past 3 years." },
-    ],
-  },
-  {
     slug: "university-placements",
     title: "International University Placements",
     short: "Direct guidance for international universities including CQ University and partners.",

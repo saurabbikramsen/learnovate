@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Learnovate — Pokhara, Nepal" },
-      { name: "description", content: "Visit Learnovate Int'l Education Consultant in Pokhara. Phone, email, map and free counselling form for IELTS, PTE, entrance and study abroad." },
+      { name: "description", content: "Visit Learnovate Int'l Education Consultant at Mahendrapool-4, Pokhara. Phone, email, map and free counselling form for IELTS, PTE and study abroad." },
       { property: "og:title", content: "Contact Learnovate — Pokhara" },
       { property: "og:description", content: "Get in touch with Learnovate Int'l Education Consultant for free study abroad counselling." },
     ],
@@ -64,7 +64,7 @@ function ContactPage() {
   };
 
   const contacts = [
-    { icon: MapPin, label: "Office", value: "Chipledhunga, Pokhara — Kaski, Nepal" },
+    { icon: MapPin, label: "Office", value: "Mahendrapool-4, Pokhara, Nepal (opposite to Hulak Bhawan)" },
     { icon: Phone, label: "Phone", value: "061-586088  ·  +977 9856082953" },
     { icon: Mail, label: "Email", value: "info@learnovate.com.np" },
     { icon: Clock, label: "Office Hours", value: "Sun – Fri · 9:00 AM – 6:00 PM" },
@@ -135,7 +135,7 @@ function ContactPage() {
               <label className="text-sm font-semibold text-foreground mb-2 block">Service Interested In</label>
               <select name="service" className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-glow" defaultValue="">
                 <option value="" disabled>Select a service</option>
-                {["IELTS/PTE/Duolingo","Entrance Preparation","University Placement","Scholarship Support","SOP & Documentation","Visa Assistance"].map(s => <option key={s}>{s}</option>)}
+                {["IELTS/PTE/Duolingo","University Placement","Scholarship Support","SOP & Documentation","Visa Assistance"].map(s => <option key={s}>{s}</option>)}
               </select>
             </div>
             <div>
@@ -160,7 +160,7 @@ function ContactPage() {
           <div className="overflow-hidden rounded-2xl border border-border shadow-card">
             <iframe
               title="Learnovate Pokhara location"
-              src="https://www.google.com/maps?q=Chipledhunga,Pokhara,Nepal&output=embed"
+              src="https://www.google.com/maps?q=Mahendrapool,Pokhara,Nepal&output=embed"
               width="100%"
               height="420"
               loading="lazy"

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import logoUrl from "@/assets/logo.svg";
+
 
 type NavLink =
   | { kind: "hash"; hash: string; label: string }
@@ -12,6 +14,7 @@ const links: NavLink[] = [
   { kind: "hash", hash: "about", label: "About" },
   { kind: "hash", hash: "countries", label: "Countries" },
   { kind: "hash", hash: "services", label: "Services" },
+  { kind: "hash", hash: "team", label: "Team" },
   { kind: "hash", hash: "testimonials", label: "Testimonials" },
   { kind: "hash", hash: "faq", label: "FAQ" },
   { kind: "route", to: "/contact", label: "Contact" },
@@ -38,13 +41,8 @@ export function Navbar() {
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link to="/" hash="home" className="flex items-center gap-2 font-display font-bold text-lg">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <GraduationCap className="h-5 w-5" />
-          </span>
-          <span className="text-foreground">
-            Learno<span className="text-primary">vate</span>
-          </span>
+        <Link to="/" hash="home" className="flex items-center">
+          <img src={logoUrl} alt="Learnovate Int'l Education Consultant" className="h-10 w-auto" />
         </Link>
         <ul className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
