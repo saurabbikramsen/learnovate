@@ -1,7 +1,6 @@
 import { Facebook, Instagram, Linkedin, MapPin } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import logoUrl from "@/assets/logo.svg";
-
+import logoUrl from "@/assets/learnovate-logo.png";
 
 export function Footer() {
   return (
@@ -19,9 +18,12 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {["About", "Countries", "Services", "Team", "FAQ"].map(l => (
-                <li key={l}><Link to="/" hash={l.toLowerCase()} className="hover:text-primary transition-colors">{l}</Link></li>
-              ))}
+              <li><Link to="/" hash="about" className="hover:text-primary transition-colors">About</Link></li>
+              <li><Link to="/countries" className="hover:text-primary transition-colors">Countries</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
+              <li><Link to="/team" className="hover:text-primary transition-colors">Team</Link></li>
+              <li><Link to="/testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
+              <li><Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>

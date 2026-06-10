@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { team } from "@/data/team";
 
-
 export function Team() {
   return (
     <section id="team" className="py-24 bg-background">

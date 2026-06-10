@@ -5,6 +5,8 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { services, getServiceBySlug } from "@/data/services";
 import type { Service } from "@/data/services";
+import { InquiryForm } from "@/components/site/InquiryForm";
+import { Toaster } from "@/components/ui/sonner";
 
 const iconMap: Record<Service["icon"], typeof FileText> = { FileText, Plane, Sprout, Languages, GraduationCap, CreditCard };
 
@@ -50,7 +52,7 @@ function ServicePage() {
 
       <section className="pt-28 md:pt-32 pb-16 bg-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" hash="services" className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary mb-6 transition-colors">
+          <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4" /> All services
           </Link>
           <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -139,6 +141,33 @@ function ServicePage() {
         </div>
       </section>
 
+      {/* Inquiry / Apply form */}
+      <section id="apply" className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <span className="text-sm font-semibold uppercase tracking-widest text-primary">Get Started</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Apply for {service.title}</h2>
+            <p className="text-muted-foreground mt-3">Tell us about your goals — a Learnovate counsellor will reach out within 24 hours.</p>
+          </div>
+          <InquiryForm
+            title={`${service.title} — Inquiry`}
+            subtitle="No fee for the first consultation."
+            formType={`service:${service.slug}`}
+            submitLabel="Send Inquiry"
+            fields={[
+              { name: "name", label: "Full Name", placeholder: "Ram Bahadur", required: true },
+              { name: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "+977 98XXXXXXXX", required: true },
+              { name: "email", label: "Email", type: "email", placeholder: "you@example.com", required: true },
+              { name: "education", label: "Highest Qualification", type: "select", placeholder: "Select qualification", options: ["+2 / A-Levels", "Bachelor's", "Master's", "Other"], required: true },
+              { name: "destinationCountry", label: "Destination Country", type: "select", placeholder: "Select country", options: ["Australia", "United Kingdom", "United States", "Canada", "New Zealand", "Japan", "South Korea", "Malta", "Undecided"] },
+              { name: "preferredIntake", label: "Preferred Intake", type: "select", placeholder: "Select intake", options: ["Next 3 months", "3–6 months", "6–12 months", "12+ months"] },
+              { name: "service", label: "Service", defaultValue: service.title, required: true },
+              { name: "notes", label: "Tell us about your goals", type: "textarea", placeholder: "Your academic background, target programs, budget, anything we should know..." },
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Other services */}
       <section className="py-20 bg-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +176,7 @@ function ServicePage() {
               <span className="text-sm font-semibold uppercase tracking-widest text-primary">Explore More</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Other services</h2>
             </div>
-            <Link to="/" hash="services" className="text-sm font-semibold text-primary hover:underline">View all</Link>
+            <Link to="/services" className="text-sm font-semibold text-primary hover:underline">View all</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {others.map((s) => {
@@ -173,6 +202,7 @@ function ServicePage() {
 
       <Footer />
       <WhatsAppButton />
+      <Toaster />
     </div>
   );
 }

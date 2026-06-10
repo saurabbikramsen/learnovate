@@ -1,28 +1,41 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Languages,
+  Sprout,
+  GraduationCap,
+  CreditCard,
+  FileText,
+  Plane,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
-import logoUrl from "@/assets/logo.svg";
+import logoUrl from "@/assets/learnovate-logo.png";
+import { countries } from "@/data/countries";
+import { services } from "@/data/services";
 
+const serviceIcons = {
+  Languages,
+  Sprout,
+  GraduationCap,
+  CreditCard,
+  FileText,
+  Plane,
+} as const;
 
-type NavLink =
-  | { kind: "hash"; hash: string; label: string }
-  | { kind: "route"; to: string; label: string };
-
-const links: NavLink[] = [
-  { kind: "hash", hash: "home", label: "Home" },
-  { kind: "hash", hash: "about", label: "About" },
-  { kind: "hash", hash: "countries", label: "Countries" },
-  { kind: "hash", hash: "services", label: "Services" },
-  { kind: "hash", hash: "team", label: "Team" },
-  { kind: "hash", hash: "testimonials", label: "Testimonials" },
-  { kind: "hash", hash: "faq", label: "FAQ" },
-  { kind: "route", to: "/contact", label: "Contact" },
-];
+const simpleLinks = [
+  { to: "/book-ielts", label: "Book IELTS" },
+  { to: "/testimonials", label: "Testimonials" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState<null | "services" | "countries">(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -45,13 +58,80 @@ export function Navbar() {
           <img src={logoUrl} alt="Learnovate Int'l Education Consultant" className="h-10 w-auto" />
         </Link>
         <ul className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
+          <li
+            className="relative"
+            onMouseEnter={() => setOpenMenu("services")}
+            onMouseLeave={() => setOpenMenu(null)}
+          >
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
+              Services <ChevronDown className="h-3.5 w-3.5" />
+            </Link>
+            {openMenu === "services" && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
+                <div className="w-80 bg-card border border-border rounded-xl shadow-elegant p-2">
+                  {services.map((s) => {
+                    const Icon = serviceIcons[s.icon] ?? GraduationCap;
+                    return (
+                      <Link
+                        key={s.slug}
+                        to="/services/$slug"
+                        params={{ slug: s.slug }}
+                        onClick={() => setOpenMenu(null)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm text-foreground hover:bg-soft hover:text-primary group"
+                      >
+                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-accent text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className="font-medium">{s.title}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </li>
+          <li
+            className="relative"
+            onMouseEnter={() => setOpenMenu("countries")}
+            onMouseLeave={() => setOpenMenu(null)}
+          >
+            <Link
+              to="/countries"
+              className="inline-flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
+              Countries <ChevronDown className="h-3.5 w-3.5" />
+            </Link>
+            {openMenu === "countries" && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
+                <div className="w-[28rem] bg-card border border-border rounded-xl shadow-elegant p-3 grid grid-cols-2 gap-1">
+                  {countries.map((c) => (
+                    <Link
+                      key={c.slug}
+                      to="/countries/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setOpenMenu(null)}
+                      className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-soft hover:text-primary transition-colors"
+                    >
+                      <img
+                        src={`https://flagcdn.com/w40/${c.code}.png`}
+                        alt={`${c.name} flag`}
+                        className="h-4 w-6 object-cover rounded-sm border border-border"
+                      />
+                      <span className="text-sm font-medium text-foreground">{c.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </li>
+          {simpleLinks.map((l) => (
             <li key={l.label}>
-              {l.kind === "hash" ? (
-                <Link to="/" hash={l.hash} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">{l.label}</Link>
-              ) : (
-                <Link to={l.to} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">{l.label}</Link>
-              )}
+              <Link to={l.to} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                {l.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -70,15 +150,56 @@ export function Navbar() {
         </button>
       </nav>
       {open && (
-        <div className="lg:hidden bg-background border-t border-border animate-fade-in-up">
+        <div className="lg:hidden bg-background border-t border-border animate-fade-in-up max-h-[80vh] overflow-y-auto">
           <ul className="px-4 py-4 space-y-2">
-            {links.map((l) => (
+            <li>
+              <Link to="/services" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary font-semibold">
+                Services
+              </Link>
+              <ul className="pl-2 mt-1 space-y-1">
+                {services.map((s) => {
+                  const Icon = serviceIcons[s.icon] ?? GraduationCap;
+                  return (
+                    <li key={s.slug}>
+                      <Link
+                        to="/services/$slug"
+                        params={{ slug: s.slug }}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-foreground/80 hover:bg-secondary"
+                      >
+                        <Icon className="h-4 w-4 text-primary" />
+                        {s.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+            <li>
+              <Link to="/countries" onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary font-semibold">
+                Countries
+              </Link>
+              <ul className="pl-2 mt-1 grid grid-cols-2 gap-1">
+                {countries.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      to="/countries/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-foreground/80 hover:bg-secondary"
+                    >
+                      <img src={`https://flagcdn.com/w40/${c.code}.png`} alt="" className="h-3 w-5 object-cover rounded-sm" />
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            {simpleLinks.map((l) => (
               <li key={l.label}>
-                {l.kind === "hash" ? (
-                  <Link to="/" hash={l.hash} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary">{l.label}</Link>
-                ) : (
-                  <Link to={l.to} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary">{l.label}</Link>
-                )}
+                <Link to={l.to} onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md text-foreground hover:bg-secondary">
+                  {l.label}
+                </Link>
               </li>
             ))}
             <li>

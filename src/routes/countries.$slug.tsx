@@ -53,8 +53,7 @@ function CountryPage() {
       <section className="pt-28 md:pt-32 pb-16 bg-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            to="/"
-            hash="countries"
+            to="/countries"
             className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary mb-6 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" /> All destinations
@@ -77,8 +76,7 @@ function CountryPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  to="/"
-                  hash="contact"
+                  to="/contact"
                   className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-bold hover:-translate-y-0.5 hover:shadow-elegant transition-all"
                 >
                   Book Free Counselling
@@ -235,18 +233,42 @@ function CountryPage() {
       {/* Top universities + Requirements */}
       <section className="py-20 bg-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10">
-          {country.topUniversities && (
+          {(country.universityDetails ?? country.topUniversities) && (
             <div className="p-8 rounded-2xl bg-card border border-border shadow-card">
               <span className="text-sm font-semibold uppercase tracking-widest text-primary">Partner Universities</span>
               <h3 className="text-2xl font-bold mt-2 mb-5 text-foreground">Where our students study</h3>
-              <ul className="space-y-3">
-                {country.topUniversities.map((u: string) => (
-                  <li key={u} className="flex items-start gap-3">
-                    <Building2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-foreground/85">{u}</span>
-                  </li>
-                ))}
-              </ul>
+              {country.universityDetails ? (
+                <ul className="space-y-4">
+                  {country.universityDetails.map((u: { name: string; city: string; type?: string; note?: string }) => (
+                    <li key={u.name} className="p-4 rounded-xl border border-border bg-soft/50 hover:border-primary/40 transition-colors">
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="font-bold text-foreground">{u.name}</span>
+                            {u.type && (
+                              <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-accent border border-border rounded-full px-2 py-0.5">{u.type}</span>
+                            )}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1.5">
+                            <MapPin className="h-3 w-3" /> {u.city}
+                          </div>
+                          {u.note && <p className="text-sm text-foreground/75 mt-2 leading-relaxed">{u.note}</p>}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="space-y-3">
+                  {country.topUniversities!.map((u: string) => (
+                    <li key={u} className="flex items-start gap-3">
+                      <Building2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                      <span className="text-foreground/85">{u}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
           {country.requirements && (
@@ -300,7 +322,7 @@ function CountryPage() {
               <span className="text-sm font-semibold uppercase tracking-widest text-primary">Explore More</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Other destinations</h2>
             </div>
-            <Link to="/" hash="countries" className="text-sm font-semibold text-primary hover:underline">
+            <Link to="/countries" className="text-sm font-semibold text-primary hover:underline">
               View all
             </Link>
           </div>

@@ -9,20 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookIeltsRouteImport } from './routes/book-ielts'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TeamIndexRouteImport } from './routes/team.index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as CountriesIndexRouteImport } from './routes/countries.index'
 import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as CountriesSlugRouteImport } from './routes/countries.$slug'
 
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookIeltsRoute = BookIeltsRouteImport.update({
+  id: '/book-ielts',
+  path: '/book-ielts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamIndexRoute = TeamIndexRouteImport.update({
+  id: '/team/',
+  path: '/team/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CountriesIndexRoute = CountriesIndexRouteImport.update({
+  id: '/countries/',
+  path: '/countries/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeamSlugRoute = TeamSlugRouteImport.update({
@@ -43,55 +79,116 @@ const CountriesSlugRoute = CountriesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/countries/': typeof CountriesIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/countries': typeof CountriesIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/team': typeof TeamIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/team/$slug': typeof TeamSlugRoute
+  '/countries/': typeof CountriesIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/team/': typeof TeamIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/book-ielts'
     | '/contact'
+    | '/faq'
+    | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
     | '/team/$slug'
+    | '/countries/'
+    | '/services/'
+    | '/team/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/countries/$slug' | '/services/$slug' | '/team/$slug'
+  to:
+    | '/'
+    | '/book-ielts'
+    | '/contact'
+    | '/faq'
+    | '/testimonials'
+    | '/countries/$slug'
+    | '/services/$slug'
+    | '/team/$slug'
+    | '/countries'
+    | '/services'
+    | '/team'
   id:
     | '__root__'
     | '/'
+    | '/book-ielts'
     | '/contact'
+    | '/faq'
+    | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
     | '/team/$slug'
+    | '/countries/'
+    | '/services/'
+    | '/team/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookIeltsRoute: typeof BookIeltsRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   CountriesSlugRoute: typeof CountriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   TeamSlugRoute: typeof TeamSlugRoute
+  CountriesIndexRoute: typeof CountriesIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+  TeamIndexRoute: typeof TeamIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -99,11 +196,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/book-ielts': {
+      id: '/book-ielts'
+      path: '/book-ielts'
+      fullPath: '/book-ielts'
+      preLoaderRoute: typeof BookIeltsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team/': {
+      id: '/team/'
+      path: '/team'
+      fullPath: '/team/'
+      preLoaderRoute: typeof TeamIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/countries/': {
+      id: '/countries/'
+      path: '/countries'
+      fullPath: '/countries/'
+      preLoaderRoute: typeof CountriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/team/$slug': {
@@ -132,21 +257,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookIeltsRoute: BookIeltsRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  TestimonialsRoute: TestimonialsRoute,
   CountriesSlugRoute: CountriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   TeamSlugRoute: TeamSlugRoute,
+  CountriesIndexRoute: CountriesIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+  TeamIndexRoute: TeamIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

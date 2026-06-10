@@ -53,7 +53,7 @@ function TeamMemberPage() {
 
       <section className="pt-28 md:pt-32 pb-12 bg-soft">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" hash="team" className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-6 hover:gap-3 transition-all">
+          <Link to="/team" className="inline-flex items-center gap-2 text-sm font-semibold text-primary mb-6 hover:gap-3 transition-all">
             <ArrowLeft className="h-4 w-4" /> Back to team
           </Link>
           <div className="grid lg:grid-cols-[320px,1fr] gap-10 items-start">

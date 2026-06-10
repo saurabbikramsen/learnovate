@@ -20,6 +20,7 @@ export type Country = {
   requirements?: string[];
   opportunities?: { title: string; desc: string }[];
   courseDetails?: { name: string; level: string; duration: string; avgFee: string; careers: string }[];
+  universityDetails?: { name: string; city: string; type?: string; note?: string }[];
 };
 
 export const countries: Country[] = [
@@ -47,6 +48,13 @@ export const countries: Country[] = [
     workHours: "48 hours / fortnight during study, unlimited on breaks",
     postStudyWork: "Subclass 485 — 2 to 4 years depending on qualification",
     topUniversities: ["CQ University", "Federation University", "Victoria University", "Charles Darwin University", "University of Tasmania"],
+    universityDetails: [
+      { name: "CQ University", city: "Sydney · Melbourne · Brisbane · Rockhampton", type: "Public University", note: "Scholarships up to 25% for Nepali students. Strong in IT, Nursing & Accounting." },
+      { name: "Federation University", city: "Ballarat · Melbourne · Brisbane", type: "Public University", note: "Affordable tuition with co-op-based industry placements." },
+      { name: "Victoria University", city: "Melbourne", type: "Public University", note: "Famous for its Block Model — one unit at a time, deeper learning." },
+      { name: "Charles Darwin University", city: "Darwin · Sydney", type: "Public University", note: "Located in regional Australia — extra PR points under skilled migration." },
+      { name: "University of Tasmania", city: "Hobart · Launceston · Sydney", type: "Public University", note: "Designated regional area with strong post-study work benefits." },
+    ],
     requirements: ["IELTS 6.0+ (no band less than 5.5) or PTE 50+", "Academic transcripts & character certificate", "Statement of Purpose (SOP)", "Financial evidence covering tuition + living", "Genuine Student (GS) statement"],
     opportunities: [
       { title: "Skilled Migration Pathway", desc: "Many courses are on the Medium and Long-Term Skilled Occupation List, leading to permanent residency." },
@@ -100,6 +108,24 @@ export const countries: Country[] = [
       "London Metropolitan University",
       "Richmond American University London",
     ],
+    universityDetails: [
+      { name: "University of Roehampton London", city: "London", type: "Public University", note: "Modern parkland campus in south-west London with strong business & arts programs." },
+      { name: "University of East London", city: "London (Docklands & Stratford)", type: "Public University", note: "Career-focused degrees with industry placements across London." },
+      { name: "University of West London", city: "London (Ealing · Brentford · Reading)", type: "Public University", note: "Top-ranked modern university — strong in hospitality, music and nursing." },
+      { name: "Ulster University", city: "Belfast · Birmingham · London", type: "Public University", note: "Research-intensive university, ranked among UK's top 150." },
+      { name: "Ravensbourne University London", city: "London (Greenwich Peninsula)", type: "Public University", note: "Specialist in digital media, design and animation." },
+      { name: "University College Birmingham (UCB)", city: "Birmingham", type: "Public University", note: "Renowned for hospitality, culinary arts and tourism management." },
+      { name: "Leeds Trinity University", city: "Leeds", type: "Public University", note: "Small, supportive campus with embedded professional placements." },
+      { name: "Regent College London", city: "London (Wembley · Harrow)", type: "Private HE Provider", note: "Pathway and degree partner of multiple UK universities." },
+      { name: "University of Cumbria", city: "Carlisle · Lancaster · Ambleside · London", type: "Public University", note: "Recognised for nursing, education and outdoor studies." },
+      { name: "University of Chester", city: "Chester · Warrington · London", type: "Public University", note: "Historic university with strong business and healthcare programs." },
+      { name: "Canterbury Christ Church University", city: "Canterbury · Medway · Tunbridge Wells", type: "Public University", note: "Top-rated for teacher training, nursing and policing." },
+      { name: "University of Wolverhampton", city: "Wolverhampton · Walsall · Telford", type: "Public University", note: "Affordable tuition with strong engineering and computing schools." },
+      { name: "UWE Bristol — University of the West of England", city: "Bristol", type: "Public University", note: "TEF Gold institution with top-tier employability." },
+      { name: "The University of Law", city: "London · Birmingham · Manchester · Leeds · Bristol", type: "Specialist University", note: "UK's largest law school — also offers business and tech LLM/MSc programs." },
+      { name: "London Metropolitan University", city: "London (Holloway · Aldgate)", type: "Public University", note: "Diverse central-London campus with strong business and computing." },
+      { name: "Richmond American University London", city: "London (Richmond-upon-Thames)", type: "Private University", note: "Dual UK + US accredited liberal arts degrees." },
+    ],
     requirements: ["IELTS UKVI 6.0–6.5+ overall", "Academic transcripts", "Personal Statement", "CAS letter from UK university", "Tuberculosis (TB) test certificate", "Proof of funds for tuition + living"],
     opportunities: [
       { title: "Global Talent Pool", desc: "Direct hiring routes with London's finance, tech and healthcare sectors." },
@@ -136,6 +162,13 @@ export const countries: Country[] = [
     workHours: "20 hours / week on-campus during study, CPT/OPT off-campus",
     postStudyWork: "OPT — 1 year (STEM OPT extension up to 3 years)",
     topUniversities: ["University of Texas at Dallas", "George Mason University", "Pace University", "Saint Louis University", "University of Cincinnati"],
+    universityDetails: [
+      { name: "University of Texas at Dallas", city: "Richardson, Texas", type: "Public Research University", note: "Top-ranked for Computer Science, Engineering and Business Analytics." },
+      { name: "George Mason University", city: "Fairfax, Virginia", type: "Public Research University", note: "Largest public university in Virginia — proximity to DC tech & policy jobs." },
+      { name: "Pace University", city: "New York City · Westchester", type: "Private University", note: "Strong placement record on Wall Street and NYC tech firms." },
+      { name: "Saint Louis University", city: "St. Louis, Missouri", type: "Private Jesuit University", note: "Reputed for Aviation, Healthcare and Public Health." },
+      { name: "University of Cincinnati", city: "Cincinnati, Ohio", type: "Public Research University", note: "Famous for its co-op program — paid internships built into the degree." },
+    ],
     requirements: ["IELTS 6.5+ / TOEFL 80+ / PTE 60+", "GRE/GMAT (for many MS/MBA programs)", "SOP & 2–3 LORs", "Academic transcripts (course-by-course evaluation if needed)", "I-20 and SEVIS fee receipt", "Bank statement covering first year"],
     opportunities: [
       { title: "STEM Career Pipeline", desc: "3 years of OPT work authorisation feeds directly into H-1B sponsorship at major tech firms." },
@@ -172,6 +205,13 @@ export const countries: Country[] = [
     workHours: "24 hours / week during study, full-time on breaks",
     postStudyWork: "PGWP — up to 3 years",
     topUniversities: ["Conestoga College", "Seneca College", "Fanshawe College", "Humber College", "Cape Breton University"],
+    universityDetails: [
+      { name: "Conestoga College", city: "Kitchener · Waterloo · Cambridge", type: "Public College", note: "Largest polytechnic in Ontario — strong PGWP eligibility & co-op." },
+      { name: "Seneca College", city: "Toronto (multiple campuses)", type: "Public College", note: "Wide range of degree, diploma and PG certificate programs." },
+      { name: "Fanshawe College", city: "London, Ontario", type: "Public College", note: "Affordable tuition with industry-driven programs in business and IT." },
+      { name: "Humber College", city: "Toronto (North · Lakeshore)", type: "Public College", note: "Top-ranked for media, hospitality and business diplomas." },
+      { name: "Cape Breton University", city: "Sydney, Nova Scotia", type: "Public University", note: "PR-friendly Atlantic province — strong MBA in Community Economic Dev." },
+    ],
     requirements: ["IELTS 6.0+ overall (SDS route: 6.0 in each band)", "GIC of C$ 20,635 for SDS", "First-year tuition paid upfront", "SOP and academic documents", "Medical exam & police clearance"],
     opportunities: [
       { title: "Permanent Residency", desc: "Express Entry CRS, PNP and Atlantic Immigration Program after PGWP." },
@@ -208,6 +248,13 @@ export const countries: Country[] = [
     workHours: "20 hours / week during study, full-time on breaks",
     postStudyWork: "Post-Study Work Visa — 1 to 3 years",
     topUniversities: ["Lincoln University", "Massey University", "AUT", "University of Waikato", "Otago Polytechnic"],
+    universityDetails: [
+      { name: "Lincoln University", city: "Christchurch", type: "Public University", note: "Specialist in agriculture, agribusiness and environmental science." },
+      { name: "Massey University", city: "Palmerston North · Auckland · Wellington", type: "Public University", note: "Strong in aviation, veterinary, food technology and business." },
+      { name: "AUT — Auckland University of Technology", city: "Auckland", type: "Public University", note: "Largest tech-focused university in NZ with strong industry links." },
+      { name: "University of Waikato", city: "Hamilton · Tauranga", type: "Public University", note: "Globally ranked for management, cybersecurity and education." },
+      { name: "Otago Polytechnic", city: "Dunedin · Auckland · Central Otago", type: "Polytechnic (Te Pūkenga)", note: "Hands-on diplomas and degrees with strong PR pathway." },
+    ],
     requirements: ["IELTS 6.0+ / PTE 50+", "Academic transcripts", "Statement of Purpose", "Genuine intent statement", "Funds: NZ$ 20,000 + tuition"],
     opportunities: [
       { title: "Green List Occupations", desc: "Construction, healthcare and IT roles fast-track residency under the Green List." },
@@ -244,6 +291,13 @@ export const countries: Country[] = [
     workHours: "28 hours / week during study, 40 hours on breaks",
     postStudyWork: "Designated Activities Visa — up to 1 year for job hunting",
     topUniversities: ["ARC Academy", "Akamonkai Japanese Language School", "Toyo University", "Kyoto Institute of Technology", "Waseda University"],
+    universityDetails: [
+      { name: "ARC Academy", city: "Tokyo · Osaka · Kyoto", type: "Japanese Language School", note: "One of Japan's most respected JLPT-prep language schools." },
+      { name: "Akamonkai Japanese Language School", city: "Tokyo (Nippori)", type: "Japanese Language School", note: "Pathway provider into top Japanese universities." },
+      { name: "Toyo University", city: "Tokyo", type: "Private University", note: "Strong in business, international tourism and life design." },
+      { name: "Kyoto Institute of Technology", city: "Kyoto", type: "National University", note: "Specialist in engineering, design and architecture." },
+      { name: "Waseda University", city: "Tokyo", type: "Private University", note: "One of Japan's most prestigious universities — English-taught SILS program." },
+    ],
     requirements: ["JLPT N5 minimum (N4 preferred) for language school", "12 years of education", "Letter of guarantee / sponsor documents", "Certificate of Eligibility (COE)", "Financial proof of ¥ 1.5 million minimum"],
     opportunities: [
       { title: "Specified Skilled Worker", desc: "Pathway into long-term employment across 12 industries after graduation." },
@@ -280,6 +334,13 @@ export const countries: Country[] = [
     workHours: "20 hours / week during semester, unlimited on breaks",
     postStudyWork: "D-10 Job Seeker Visa — 6 months, extendable",
     topUniversities: ["Konkuk University", "Kyung Hee University", "Hanyang University", "Sejong University", "Chonnam National University"],
+    universityDetails: [
+      { name: "Konkuk University", city: "Seoul · Chungju", type: "Private Research University", note: "Strong in veterinary, business and bio-engineering." },
+      { name: "Kyung Hee University", city: "Seoul · Suwon", type: "Private University", note: "Famous for hospitality, oriental medicine and international studies." },
+      { name: "Hanyang University", city: "Seoul · Ansan (ERICA)", type: "Private Research University", note: "Top-ranked for Engineering and Computer Science in Korea." },
+      { name: "Sejong University", city: "Seoul (Gwangjin)", type: "Private University", note: "Renowned for hotel & tourism, animation and game design." },
+      { name: "Chonnam National University", city: "Gwangju · Yeosu", type: "National University", note: "GKS-friendly with generous scholarships for international students." },
+    ],
     requirements: ["TOPIK Level 3+ or IELTS 5.5+ for English programs", "High school / Bachelor transcripts", "Study Plan & SOP", "Financial proof of US$ 20,000", "Apostilled documents"],
     opportunities: [
       { title: "GKS Scholarship", desc: "Full tuition + monthly stipend + air-fare for selected international students." },
@@ -316,6 +377,13 @@ export const countries: Country[] = [
     workHours: "20 hours / week after first 13 weeks of study",
     postStudyWork: "Job-seeker residence permit up to 9 months",
     topUniversities: ["American University of Malta", "Global College Malta", "Saint Martin's Institute", "Institute of Tourism Studies", "MCAST"],
+    universityDetails: [
+      { name: "American University of Malta", city: "Bormla (Cospicua)", type: "Private University", note: "US-style liberal arts education on the Maltese coast." },
+      { name: "Global College Malta", city: "Marsa", type: "Private College", note: "Affordable English-taught business and computing degrees." },
+      { name: "Saint Martin's Institute", city: "Hamrun", type: "Higher Education Institute", note: "Computing and business degrees accredited by the University of London." },
+      { name: "Institute of Tourism Studies", city: "St. Julian's · Gozo", type: "Public Tourism Institute", note: "Malta's leading school for hospitality and tourism." },
+      { name: "MCAST — Malta College of Arts, Science & Technology", city: "Paola (Main) · 6 regional campuses", type: "Public Vocational College", note: "Vocational degrees with strong industry pathways." },
+    ],
     requirements: ["IELTS 5.5–6.0+", "High school / Bachelor transcripts", "Personal statement", "Health insurance for entire stay", "Proof of accommodation in Malta"],
     opportunities: [
       { title: "iGaming Capital", desc: "Malta is the global hub for online gaming, fintech and blockchain startups." },

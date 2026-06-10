@@ -1,4 +1,4 @@
-import { FileText, Plane, Sprout, Languages, GraduationCap, CreditCard, ArrowRight } from "lucide-react";
+import { FileText, Plane, Sprout, Languages, GraduationCap, CreditCard, ArrowRight, CalendarCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { services } from "@/data/services";
 import type { Service } from "@/data/services";
@@ -40,6 +40,24 @@ export function Services() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-accent border border-border shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+          <div className="flex items-start gap-4">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-card text-primary border border-border shadow-card shrink-0">
+              <CalendarCheck className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-foreground">Ready to start IELTS prep?</h3>
+              <p className="text-sm text-muted-foreground">Reserve your seat in the next batch — limited spots per class.</p>
+            </div>
+          </div>
+          <Link
+            to="/book-ielts"
+            className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 font-bold hover:-translate-y-0.5 hover:shadow-elegant transition-all whitespace-nowrap"
+          >
+            Book IELTS Seat <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>
