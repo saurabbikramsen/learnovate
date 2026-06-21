@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Calendar, GraduationCap, MapPin, Briefcase, Wallet, Clock, Languages, Building2, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, GraduationCap, MapPin, Briefcase, Wallet, Clock, Languages, Building2, CheckCircle2, Globe2, Award, TrendingUp } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -109,12 +109,12 @@ function CountryPage() {
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-3 gap-4">
           {[
-            { icon: MapPin, label: "Universities", value: country.unis },
-            { icon: Calendar, label: "Intakes", value: country.intake },
-            { icon: GraduationCap, label: "Top Courses", value: country.popularCourses.slice(0, 2).join(" · ") },
+            { icon: MapPin,        label: "Universities", value: country.unis,                                       grad: "from-blue-600 to-blue-400"    },
+            { icon: Calendar,      label: "Intakes",      value: country.intake,                                      grad: "from-emerald-600 to-emerald-400" },
+            { icon: GraduationCap, label: "Top Courses",  value: country.popularCourses.slice(0, 2).join(" · "), grad: "from-violet-600 to-violet-400"  },
           ].map((f) => (
             <div key={f.label} className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border shadow-card hover-lift">
-              <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary border border-border shrink-0">
+              <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${f.grad} text-white shadow-card shrink-0`}>
                 <f.icon className="h-5 w-5" />
               </div>
               <div>
@@ -130,8 +130,10 @@ function CountryPage() {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">Country Snapshot</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">{country.name} at a glance</h2>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+              Country Snapshot
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">{country.name} at a glance</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -160,16 +162,26 @@ function CountryPage() {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">Why {country.name}</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">What makes it special</h2>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+              Why {country.name}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">What makes it special</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {country.highlights.map((h: Country["highlights"][number]) => (
-              <div key={h.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover-lift">
-                <h3 className="font-bold text-lg text-foreground mb-2">{h.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{h.desc}</p>
-              </div>
-            ))}
+            {country.highlights.map((h: Country["highlights"][number], i: number) => {
+              const gradients = ["from-blue-600 to-blue-400", "from-emerald-600 to-emerald-400", "from-violet-600 to-violet-400"];
+              const grad = gradients[i % gradients.length];
+              return (
+                <div key={h.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover-lift relative overflow-hidden">
+                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${grad}`} />
+                  <div className={`inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${grad} text-white mb-4 shadow-card`}>
+                    <GraduationCap className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-bold text-lg text-foreground mb-2">{h.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{h.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -179,19 +191,28 @@ function CountryPage() {
         <section className="py-20 bg-soft">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">Opportunities</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Career & immigration pathways</h2>
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+                Opportunities
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">Career &amp; immigration pathways</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {country.opportunities.map((o: { title: string; desc: string }) => (
-                <div key={o.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover-lift">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary border border-border mb-4">
-                    <Briefcase className="h-5 w-5" />
+              {country.opportunities.map((o: { title: string; desc: string }, i: number) => {
+                const icons   = [Globe2, Briefcase, Award, TrendingUp];
+                const gradients = ["from-blue-600 to-blue-400", "from-amber-500 to-amber-400", "from-emerald-600 to-emerald-400", "from-violet-600 to-violet-400"];
+                const Icon = icons[i % icons.length];
+                const grad = gradients[i % gradients.length];
+                return (
+                  <div key={o.title} className="p-7 rounded-2xl bg-card border border-border shadow-card hover-lift relative overflow-hidden">
+                    <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${grad}`} />
+                    <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${grad} text-white mb-4 shadow-card`}>
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-bold text-lg text-foreground mb-2">{o.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{o.desc}</p>
                   </div>
-                  <h3 className="font-bold text-lg text-foreground mb-2">{o.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{o.desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

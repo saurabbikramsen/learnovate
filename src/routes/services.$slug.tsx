@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Plane, Sprout, Languages, GraduationCap, CreditCard, HelpCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Plane, Sprout, Languages, GraduationCap, CreditCard } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -85,13 +86,17 @@ function ServicePage() {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">What's Included</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Everything you get with this service</h2>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+              What's Included
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">Everything you get with this service</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {service.whatYouGet.map((w: string) => (
-              <div key={w} className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border shadow-card hover-lift">
-                <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+              <div key={w} className="flex items-start gap-3 p-5 rounded-2xl bg-card border border-border shadow-card hover-lift group">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0 mt-0.5">
+                  <CheckCircle2 className="h-4 w-4" />
+                </span>
                 <span className="text-foreground/85">{w}</span>
               </div>
             ))}
@@ -103,13 +108,18 @@ function ServicePage() {
       <section className="py-20 bg-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">How It Works</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Step by step</h2>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+              How It Works
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">Your step-by-step journey</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
             {service.process.map((p: { step: string; desc: string }, i: number) => (
-              <div key={p.step} className="p-6 rounded-2xl bg-card border border-border shadow-card hover-lift">
-                <div className="text-xs font-bold text-primary mb-2">STEP {String(i + 1).padStart(2, "0")}</div>
+              <div key={p.step} className="p-6 rounded-2xl bg-card border border-border shadow-card hover-lift relative overflow-hidden group">
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white font-extrabold text-sm mb-3 shadow-card">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
                 <h3 className="font-bold text-foreground mb-2">{p.step}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </div>
@@ -120,24 +130,31 @@ function ServicePage() {
 
       {/* FAQ */}
       <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-primary">Frequently Asked</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 text-foreground">Questions about {service.title.split(" ")[0]}</h2>
+            <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-3">
+              Frequently Asked
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-foreground">Questions about {service.title.split(" ")[0]}</h2>
           </div>
-          <div className="space-y-4">
-            {service.faqs.map((f: { q: string; a: string }) => (
-              <div key={f.q} className="p-6 rounded-2xl bg-card border border-border shadow-card hover-lift">
-                <div className="flex items-start gap-3">
-                  <HelpCircle className="h-5 w-5 text-primary mt-1 shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1">{f.q}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{f.a}</p>
-                  </div>
-                </div>
-              </div>
+          <Accordion type="single" collapsible className="space-y-3">
+            {service.faqs.map((f: { q: string; a: string }, i: number) => (
+              <AccordionItem
+                key={i}
+                value={`faq-${i}`}
+                className="rounded-xl border border-border bg-card shadow-card px-5 overflow-hidden
+                           data-[state=open]:border-primary/40 data-[state=open]:shadow-elegant
+                           data-[state=open]:border-l-4 data-[state=open]:border-l-primary transition-all"
+              >
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary data-[state=open]:text-primary py-5">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
