@@ -325,7 +325,7 @@ export const countries: Country[] = [
     ],
     popularCourses: ["Korean Language", "Engineering", "Business", "Media & Design"],
     intake: "Mar · Sep",
-    heroImg: "https://images.unsplash.com/photo-1538485399081-7c8970d28933?w=1600&auto=format&fit=crop&q=70",
+    heroImg: "https://images.unsplash.com/photo-1601621915196-2621bfb0cd6e?w=1600&auto=format&fit=crop&q=70",
     capital: "Seoul",
     language: "Korean (English programs available)",
     currency: "KRW (₩)",
