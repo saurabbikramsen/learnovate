@@ -68,34 +68,34 @@
 
 :root {
   --radius: 1rem;
-  /* Soft off-white background, deep navy text — AECC-inspired */
-  --background: oklch(0.985 0.005 260);
-  --foreground: oklch(0.20 0.08 275);
+  /* Pure white background, deep navy text */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.13 0.06 258);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.08 275);
+  --card-foreground: oklch(0.13 0.06 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.08 275);
-  /* Vibrant indigo/purple primary */
-  --primary: oklch(0.55 0.22 285);
-  --primary-foreground: oklch(0.99 0.005 260);
-  --primary-glow: oklch(0.68 0.20 290);
-  --secondary: oklch(0.96 0.015 280);
-  --secondary-foreground: oklch(0.25 0.10 275);
-  --muted: oklch(0.96 0.012 270);
-  --muted-foreground: oklch(0.50 0.03 270);
-  --accent: oklch(0.96 0.04 285);
-  --accent-foreground: oklch(0.30 0.15 285);
-  /* Mint CTA accent */
-  --mint: oklch(0.86 0.16 175);
-  --mint-foreground: oklch(0.22 0.08 275);
+  --popover-foreground: oklch(0.13 0.06 258);
+  /* Brand blue — #143E86 ≈ oklch(0.38 0.13 260) */
+  --primary: oklch(0.38 0.13 260);
+  --primary-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.58 0.18 255);
+  --secondary: oklch(0.94 0.025 250);
+  --secondary-foreground: oklch(0.28 0.10 258);
+  --muted: oklch(0.96 0.010 250);
+  --muted-foreground: oklch(0.48 0.04 256);
+  --accent: oklch(0.91 0.040 250);
+  --accent-foreground: oklch(0.28 0.13 258);
+  /* Golden amber CTA accent */
+  --mint: oklch(0.82 0.17 80);
+  --mint-foreground: oklch(0.13 0.06 258);
   --destructive: oklch(0.6 0.24 27);
-  --destructive-foreground: oklch(0.99 0.005 250);
-  --border: oklch(0.92 0.015 275);
-  --input: oklch(0.92 0.015 275);
-  --ring: oklch(0.55 0.22 285);
-  --shadow-elegant: 0 20px 50px -25px oklch(0.30 0.10 275 / 0.18);
-  --shadow-glow: 0 0 40px oklch(0.68 0.20 290 / 0.18);
-  --shadow-card: 0 2px 12px -6px oklch(0.30 0.15 285 / 0.10);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.022 250);
+  --input: oklch(0.88 0.022 250);
+  --ring: oklch(0.38 0.13 260);
+  --shadow-elegant: 0 20px 50px -25px oklch(0.20 0.08 260 / 0.25);
+  --shadow-glow: 0 0 40px oklch(0.38 0.13 260 / 0.22);
+  --shadow-card: 0 2px 12px -6px oklch(0.20 0.10 260 / 0.14);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -164,7 +164,8 @@
 }
 
 @layer utilities {
-  .bg-soft { background-color: var(--secondary); }
+  .bg-soft { background: linear-gradient(135deg, oklch(0.94 0.025 250) 0%, oklch(0.97 0.015 250) 100%); }
+  .bg-hero { background: linear-gradient(135deg, oklch(0.93 0.030 250) 0%, oklch(0.98 0.010 250) 50%, oklch(1 0 0) 100%); }
   .shadow-elegant { box-shadow: var(--shadow-elegant); }
   .shadow-glow { box-shadow: var(--shadow-glow); }
   .shadow-card { box-shadow: var(--shadow-card); }
@@ -172,6 +173,7 @@
   .animate-float { animation: float 3s ease-in-out infinite; }
   .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-elegant); }
+  .card-accent-left { border-left: 3px solid var(--color-primary); }
 }
 
 @keyframes fadeInUp {

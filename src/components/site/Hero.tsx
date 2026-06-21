@@ -4,15 +4,32 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { countries } from "@/data/countries";
 
+import aashaGurung from "@/assets/success_stories/Aasha Gurung.jpeg";
+import aashisThapaMagar from "@/assets/success_stories/Aashis Thapa Magar.jpeg";
+import anishaChhetri from "@/assets/success_stories/Anisha Chhetri.jpeg";
+import ashmitaThapaMagar from "@/assets/success_stories/Ashmita Thapa Magar.jpeg";
+import bijayaThapaMagar from "@/assets/success_stories/Bijaya Thapa Magar.jpeg";
+import bishalThapa from "@/assets/success_stories/Bishal Thapa.jpeg";
+import lejinaThapaChetri from "@/assets/success_stories/Lejina Thapa Chetri.jpeg";
+import rubanShrestha from "@/assets/success_stories/Ruban Shrestha.jpeg";
+import rupeshShrestha from "@/assets/success_stories/Rupesh Shrestha.jpeg";
+import shivaKumal from "@/assets/success_stories/Shiva Kumal.jpeg";
+import suzitaRana from "@/assets/success_stories/Suzita Rana.jpeg";
+import tonyaGurung from "@/assets/success_stories/Tonya Gurung.jpeg";
+
 const successStories = [
-  { name: "Aarav K.", country: "Australia", img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&q=70" },
-  { name: "Priya S.", country: "Canada", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=70" },
-  { name: "Sushmita R.", country: "UK", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=70" },
-  { name: "Bivek T.", country: "USA", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=70" },
-  { name: "Anjali M.", country: "Japan", img: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=400&h=400&fit=crop&q=70" },
-  { name: "Rohit P.", country: "New Zealand", img: "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&h=400&fit=crop&q=70" },
-  { name: "Sneha L.", country: "South Korea", img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&q=70" },
-  { name: "Manish G.", country: "Malta", img: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop&q=70" },
+  { name: "Aasha Gurung", country: "United Kingdom", img: aashaGurung },
+  { name: "Aashis Thapa Magar", country: "United Kingdom", img: aashisThapaMagar },
+  { name: "Anisha Chhetri", country: "United Kingdom", img: anishaChhetri },
+  { name: "Ashmita Thapa Magar", country: "United Kingdom", img: ashmitaThapaMagar },
+  { name: "Bijaya Thapa Magar", country: "United Kingdom", img: bijayaThapaMagar },
+  { name: "Bishal Thapa", country: "United Kingdom", img: bishalThapa },
+  { name: "Lejina Thapa Chetri", country: "United Kingdom", img: lejinaThapaChetri },
+  { name: "Ruban Shrestha", country: "United Kingdom", img: rubanShrestha },
+  { name: "Rupesh Shrestha", country: "United Kingdom", img: rupeshShrestha },
+  { name: "Shiva Kumal", country: "United Kingdom", img: shivaKumal },
+  { name: "Suzita Rana", country: "United Kingdom", img: suzitaRana },
+  { name: "Tonya Gurung", country: "United Kingdom", img: tonyaGurung },
 ];
 
 type UniHit = { uni: string; countryName: string; slug: string };
@@ -62,14 +79,14 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-28 md:pt-32 pb-0 overflow-hidden bg-[oklch(0.985_0.005_280)]"
+      className="relative pt-28 md:pt-32 pb-0 overflow-hidden bg-hero"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "linear-gradient(oklch(0.92 0.01 280) 1px, transparent 1px), linear-gradient(90deg, oklch(0.92 0.01 280) 1px, transparent 1px)",
+            "linear-gradient(oklch(0.92 0.01 240) 1px, transparent 1px), linear-gradient(90deg, oklch(0.92 0.01 240) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
           maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
         }}
@@ -195,14 +212,15 @@ export function Hero() {
                     <div className="relative">
                       <img
                         src={s.img}
-                        alt={`${s.name} — placed in ${s.country}`}
+                        alt={`${s.name} — settled in ${s.country}`}
                         loading="lazy"
                         width={120}
                         height={120}
                         className="relative h-20 w-20 md:h-24 md:w-24 rounded-full object-cover ring-2 ring-primary/30 ring-offset-2 ring-offset-background transition-transform group-hover:scale-105"
                       />
                     </div>
-                    <span className="mt-2 text-xs font-semibold text-foreground/70">{s.country}</span>
+                    <span className="mt-2 text-xs font-bold text-foreground/80 text-center leading-tight">{s.name}</span>
+                    <span className="text-[10px] text-primary/70 font-medium">{s.country}</span>
                   </div>
                 ))}
               </div>
@@ -260,7 +278,7 @@ export function Hero() {
               {/* Flat ring frame — no AI gradients */}
               <div
                 className="absolute inset-0 rounded-full border-[10px] border-primary/15"
-                style={{ boxShadow: "0 20px 50px -30px oklch(0.30 0.10 285 / 0.35)" }}
+                style={{ boxShadow: "0 20px 50px -30px oklch(0.20 0.10 260 / 0.40)" }}
               />
               <div className="absolute inset-[10px] rounded-full overflow-hidden bg-[oklch(0.96_0.015_60)]">
                 <img
@@ -293,8 +311,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="mt-8 bg-card border-y border-border">
+      {/* Stats bar — brand navy blue */}
+      <div className="mt-8 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { n: "600+", l: "Students Placed" },
@@ -303,12 +321,12 @@ export function Hero() {
             { n: "ECAN", l: "Registered Member" },
           ].map((s) => (
             <div key={s.l} className="text-center md:text-left">
-              <div className="font-display text-3xl md:text-5xl font-extrabold text-primary leading-none">{s.n}</div>
-              <div className="text-sm md:text-base text-muted-foreground mt-2">{s.l}</div>
+              <div className="font-display text-3xl md:text-5xl font-extrabold text-white leading-none">{s.n}</div>
+              <div className="text-sm md:text-base text-white/70 mt-2">{s.l}</div>
             </div>
           ))}
         </div>
-        <div className="text-center text-xs text-muted-foreground pb-4">(As of 2026)*</div>
+        <div className="text-center text-xs text-white/50 pb-4">(As of 2026)*</div>
       </div>
     </section>
   );

@@ -42,14 +42,14 @@ export function Certificates() {
           {certs.map((c) => (
             <div
               key={c.title}
-              className="group p-6 rounded-2xl bg-card border border-border shadow-card hover-lift"
+              className="group p-6 rounded-2xl bg-card border border-border shadow-card hover-lift flex flex-col"
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-primary border border-border mb-4 transition-transform group-hover:rotate-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white mb-4 transition-transform group-hover:scale-110 shadow-card shrink-0">
                 <c.icon className="h-6 w-6" />
               </div>
-              <div className="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-accent border border-border rounded-full px-2.5 py-0.5 mb-3">
+              <span className="w-fit text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 rounded-full px-2.5 py-0.5 mb-3">
                 {c.tag}
-              </div>
+              </span>
               <h3 className="font-bold text-lg text-foreground mb-2">{c.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
             </div>

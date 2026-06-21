@@ -128,9 +128,9 @@ export const countries: Country[] = [
     ],
     requirements: ["IELTS UKVI 6.0–6.5+ overall", "Academic transcripts", "Personal Statement", "CAS letter from UK university", "Tuberculosis (TB) test certificate", "Proof of funds for tuition + living"],
     opportunities: [
-      { title: "Global Talent Pool", desc: "Direct hiring routes with London's finance, tech and healthcare sectors." },
-      { title: "Skilled Worker Visa", desc: "Switch from Graduate Route to long-term work sponsorship and settlement." },
-      { title: "Research Funding", desc: "PhD scholarships and assistantships across Russell Group universities." },
+      { title: "Global Career Opportunities", desc: "Explore exciting international career pathways in the UK across leading industries such as finance, technology, and healthcare. Graduates can access job opportunities through employer sponsorships, graduate schemes, and industry recruitment programs designed for skilled international talent." },
+      { title: "Skilled Worker Visa Pathway", desc: "Progress from the UK Graduate Route to a long-term career through the Skilled Worker visa. This pathway allows students to secure employment with licensed UK employers, gain valuable professional experience, and work toward long-term residency and settlement opportunities." },
+      { title: "Research & Scholarship Funding", desc: "Unlock academic excellence with PhD scholarships, research grants, and teaching assistantships available at Russell Group and other top UK universities. These funding opportunities are highly competitive and awarded based on academic merit, research potential, and subject demand." },
     ],
     courseDetails: [
       { name: "MSc Data Science", level: "Postgraduate", duration: "1 year", avgFee: "£ 18,000", careers: "Data Scientist, ML Engineer, Analytics Lead" },

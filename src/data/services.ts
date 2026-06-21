@@ -13,35 +13,6 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "ielts-pte-duolingo",
-    title: "IELTS · PTE · Duolingo Preparation",
-    short: "Structured language test preparation with experienced trainers and seasonal discount offers.",
-    intro:
-      "Learnovate's language test programs are built around your target band. Whether you need a 6.5 for a visa or 7.5+ for a Masters, our trainers customise drills, mock tests and one-on-one feedback so you hit the score on time.",
-    img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1600&auto=format&fit=crop&q=70",
-    icon: "Languages",
-    whatYouGet: [
-      "Diagnostic test + personalised target plan",
-      "60+ hours of live classes per module",
-      "Weekly full-length mock tests with band-wise feedback",
-      "Unlimited speaking practice with certified trainers",
-      "Writing task review by IELTS examiners",
-      "Access to recorded sessions and practice portal",
-    ],
-    process: [
-      { step: "Diagnostic", desc: "Take a free mock to identify your current band and weak areas." },
-      { step: "Personalised Plan", desc: "We pick the right batch (morning/evening/online) and target date." },
-      { step: "Train & Drill", desc: "6–10 weeks of focused practice with weekly progress reports." },
-      { step: "Mock & Refine", desc: "Three full mock tests in test-day conditions before booking the real exam." },
-      { step: "Book & Crack", desc: "Slot booking guidance and final-week confidence sessions." },
-    ],
-    faqs: [
-      { q: "How long does it take to reach IELTS 7.0?", a: "Most students reach band 7 in 6–10 weeks of consistent practice if they're starting from 5.5+." },
-      { q: "Do you offer online classes?", a: "Yes — we run morning, evening and dedicated weekend online batches." },
-      { q: "What is the fee?", a: "Fees vary by batch length and seasonal offers. Drop by our office or WhatsApp us for the current pricing." },
-    ],
-  },
-  {
     slug: "university-placements",
     title: "International University Placements",
     short: "Direct guidance for international universities including CQ University and partners.",

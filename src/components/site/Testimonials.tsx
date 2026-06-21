@@ -1,38 +1,131 @@
 import { Star, Quote } from "lucide-react";
 
+import aashaGurung        from "@/assets/success_stories/Aasha Gurung.jpeg";
+import aashisThapaMagar   from "@/assets/success_stories/Aashis Thapa Magar.jpeg";
+import anishaChhetri      from "@/assets/success_stories/Anisha Chhetri.jpeg";
+import ashmitaThapaMagar  from "@/assets/success_stories/Ashmita Thapa Magar.jpeg";
+import bijayaThapaMagar   from "@/assets/success_stories/Bijaya Thapa Magar.jpeg";
+import bishalThapa        from "@/assets/success_stories/Bishal Thapa.jpeg";
+import lejinaThapaChetri  from "@/assets/success_stories/Lejina Thapa Chetri.jpeg";
+import rubanShrestha      from "@/assets/success_stories/Ruban Shrestha.jpeg";
+import rupeshShrestha     from "@/assets/success_stories/Rupesh Shrestha.jpeg";
+import shivaKumal         from "@/assets/success_stories/Shiva Kumal.jpeg";
+import suzitaRana         from "@/assets/success_stories/Suzita Rana.jpeg";
+import tonyaGurung        from "@/assets/success_stories/Tonya Gurung.jpeg";
+
 type T = { name: string; country: string; text: string; rating: number; avatar: string };
 
 const rowOne: T[] = [
-  { name: "Kumar Thapa Magar", country: "CQ University, Australia · 25% Scholarship", text: "Learnovate guided me through every step of my CQ University application. The 25% scholarship changed everything for my family.", rating: 5, avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=70" },
-  { name: "Sabina Gurung", country: "IELTS 7.5 Band", text: "The IELTS classes are top-class. Mock tests and one-on-one feedback helped me jump from 6.0 to 7.5 in just two months.", rating: 5, avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=70" },
-  { name: "Anish Pariyar", country: "Coventry University, UK", text: "From CAS to visa interview, every step was handled with care. I landed in the UK feeling fully prepared.", rating: 5, avatar: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=200&auto=format&fit=crop&q=70" },
-  { name: "Pratima Shrestha", country: "Conestoga College, Canada", text: "Learnovate's GIC and SDS guidance made the Canadian visa process painless. I'm now in my second semester.", rating: 5, avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=70" },
-  { name: "Bibek K.C.", country: "PTE 79+ Score", text: "Their PTE strategies are gold. I scored 82 on my second attempt — couldn't have done it alone.", rating: 5, avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=70" },
+  {
+    name: "Aasha Gurung",
+    country: "Settled in United Kingdom",
+    text: "Learnovate made my UK dream a reality. From SOP drafting to CAS and visa — every step was handled with care and expertise. I'm now living and thriving in the UK.",
+    rating: 5,
+    avatar: aashaGurung,
+  },
+  {
+    name: "Aashis Thapa Magar",
+    country: "Settled in United Kingdom",
+    text: "I had applied once before and got rejected. Learnovate rebuilt my file properly, guided me through the TB test and biometrics, and my UK visa was approved within weeks.",
+    rating: 5,
+    avatar: aashisThapaMagar,
+  },
+  {
+    name: "Anisha Chhetri",
+    country: "Settled in United Kingdom",
+    text: "The counsellors at Learnovate are genuinely invested in your success. They helped me choose the right university for my career goals and prepared me for the visa interview.",
+    rating: 5,
+    avatar: anishaChhetri,
+  },
+  {
+    name: "Ashmita Thapa Magar",
+    country: "Settled in United Kingdom",
+    text: "Transparent process, zero false promises. I knew exactly what was happening at every stage. Learnovate's honesty made the entire UK application journey stress-free.",
+    rating: 5,
+    avatar: ashmitaThapaMagar,
+  },
+  {
+    name: "Bijaya Thapa Magar",
+    country: "Settled in United Kingdom",
+    text: "From the very first free counselling session, I felt confident I was in the right hands. Now I'm settled in the UK thanks to the team's relentless support.",
+    rating: 5,
+    avatar: bijayaThapaMagar,
+  },
+  {
+    name: "Bishal Thapa",
+    country: "Settled in United Kingdom",
+    text: "My IELTS score wasn't where I needed it. Learnovate's test prep classes helped me push from 5.5 to 7.0 in one month. Couldn't have cleared the UK requirement without them.",
+    rating: 5,
+    avatar: bishalThapa,
+  },
 ];
 
 const rowTwo: T[] = [
-  { name: "Ramesh Adhikari", country: "University of Roehampton, UK", text: "Learnovate's UK team handled my CAS and Personal Statement perfectly. I'm now studying in London on a partial scholarship.", rating: 5, avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=70" },
-  { name: "Sushmita Poudel", country: "Federation University, Australia", text: "From SOP drafting to pre-departure briefing, the team treated me like family. Highly recommended.", rating: 5, avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=70" },
-  { name: "Niraj Bhattarai", country: "AUT, New Zealand", text: "Visa rejected once with another agency. Learnovate re-built my file properly and I got approved in 6 weeks.", rating: 5, avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=70" },
-  { name: "Aastha Lamichhane", country: "Ulster University, UK", text: "Friendly counsellors, transparent process and zero false promises. My UK student visa was approved within weeks.", rating: 5, avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&auto=format&fit=crop&q=70" },
-  { name: "Saurav Pandey", country: "MS in CS, USA", text: "Got into a top US university with a tuition waiver. The SOP review sessions were a game changer.", rating: 5, avatar: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=200&auto=format&fit=crop&q=70" },
+  {
+    name: "Lejina Thapa Chetri",
+    country: "Settled in United Kingdom",
+    text: "Learnovate handled my documentation meticulously — bank statements, police clearance, TB test — everything was perfect. UK visa came through without a single query.",
+    rating: 5,
+    avatar: lejinaThapaChetri,
+  },
+  {
+    name: "Ruban Shrestha",
+    country: "Settled in United Kingdom",
+    text: "The pre-departure briefing sessions Learnovate runs are incredibly helpful. I arrived in the UK knowing exactly what to expect — accommodation, registration, everything.",
+    rating: 5,
+    avatar: rubanShrestha,
+  },
+  {
+    name: "Rupesh Shrestha",
+    country: "Settled in United Kingdom",
+    text: "I was skeptical at first, but Learnovate delivered on every promise. My university offer, CAS letter and visa all came through smoothly. Highly recommend to anyone.",
+    rating: 5,
+    avatar: rupeshShrestha,
+  },
+  {
+    name: "Shiva Kumal",
+    country: "Settled in United Kingdom",
+    text: "What sets Learnovate apart is that they stay with you even after your visa is approved. Their post-departure support helped me settle into UK student life effortlessly.",
+    rating: 5,
+    avatar: shivaKumal,
+  },
+  {
+    name: "Suzita Rana",
+    country: "Settled in United Kingdom",
+    text: "Choosing Learnovate was the best decision of my academic journey. Professional, prompt, and genuinely caring — they treated my visa file as if it were their own.",
+    rating: 5,
+    avatar: suzitaRana,
+  },
+  {
+    name: "Tonya Gurung",
+    country: "Settled in United Kingdom",
+    text: "From career counselling to the day I landed at Heathrow, Learnovate was with me every step. Their IELTS coaching and SOP review made all the difference.",
+    rating: 5,
+    avatar: tonyaGurung,
+  },
 ];
 
 function Card({ t }: { t: T }) {
   return (
-    <div className="relative w-[320px] sm:w-[360px] shrink-0 p-6 rounded-2xl bg-card border border-border shadow-card mx-3">
-      <Quote className="absolute top-4 right-4 h-7 w-7 text-primary/15" />
-      <div className="flex gap-1 mb-3">
-        {Array.from({ length: t.rating }).map((_, i) => (
-          <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
-        ))}
-      </div>
-      <p className="text-foreground/80 leading-relaxed mb-5 italic text-sm">"{t.text}"</p>
-      <div className="border-t border-border pt-3 flex items-center gap-3">
-        <img src={t.avatar} alt={t.name} loading="lazy" className="h-10 w-10 rounded-full object-cover border border-border" />
-        <div>
-          <div className="font-bold text-foreground text-sm">{t.name}</div>
-          <div className="text-xs text-muted-foreground">{t.country}</div>
+    <div className="relative w-[320px] sm:w-[360px] shrink-0 rounded-2xl bg-card border border-border shadow-card mx-3 overflow-hidden group hover-lift">
+      {/* Coloured top strip */}
+      <div className="h-1 bg-gradient-to-r from-primary to-primary-glow w-full group-hover:from-primary group-hover:to-mint transition-all duration-500" />
+      <div className="p-6">
+        <Quote className="absolute top-5 right-5 h-7 w-7 text-primary/15" />
+        {/* Stars */}
+        <div className="flex gap-1 mb-3">
+          {Array.from({ length: t.rating }).map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
+          ))}
+        </div>
+        <p className="text-foreground/80 leading-relaxed mb-5 italic text-sm">"{t.text}"</p>
+        <div className="border-t border-border pt-3 flex items-center gap-3">
+          <img src={t.avatar} alt={t.name} loading="lazy"
+            className="h-10 w-10 rounded-full object-cover object-top border-2 border-primary/20" />
+          <div>
+            <div className="font-bold text-foreground text-sm">{t.name}</div>
+            <div className="text-xs text-primary/80 font-medium">{t.country}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -40,7 +133,6 @@ function Card({ t }: { t: T }) {
 }
 
 function Row({ items, dir }: { items: T[]; dir: "left" | "right" }) {
-  // Duplicate the list so the translate -50% loop appears seamless.
   const doubled = [...items, ...items];
   return (
     <div className="overflow-hidden marquee-pause [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
@@ -58,9 +150,13 @@ export function Testimonials() {
     <section id="testimonials" className="py-24 bg-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-sm font-semibold uppercase tracking-widest text-primary">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4 text-foreground">Student Success Stories</h2>
-          <p className="text-muted-foreground text-lg">Real journeys from students who are now studying across the globe.</p>
+          <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold uppercase tracking-widest mb-4">
+            <Star className="h-4 w-4 fill-primary" /> Testimonials
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
+            Student <span className="text-primary">Success Stories</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">Real journeys from students who are now settled and thriving in the UK.</p>
         </div>
       </div>
       <div className="space-y-5">

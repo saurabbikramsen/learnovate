@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as TestPrepareRouteImport } from './routes/test-prepare'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookIeltsRouteImport } from './routes/book-ielts'
@@ -24,6 +25,11 @@ import { Route as CountriesSlugRouteImport } from './routes/countries.$slug'
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestPrepareRoute = TestPrepareRouteImport.update({
+  id: '/test-prepare',
+  path: '/test-prepare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/test-prepare': typeof TestPrepareRoute
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/test-prepare': typeof TestPrepareRoute
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/book-ielts': typeof BookIeltsRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/test-prepare': typeof TestPrepareRoute
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/book-ielts'
     | '/contact'
     | '/faq'
+    | '/test-prepare'
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/book-ielts'
     | '/contact'
     | '/faq'
+    | '/test-prepare'
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/book-ielts'
     | '/contact'
     | '/faq'
+    | '/test-prepare'
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   BookIeltsRoute: typeof BookIeltsRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  TestPrepareRoute: typeof TestPrepareRoute
   TestimonialsRoute: typeof TestimonialsRoute
   CountriesSlugRoute: typeof CountriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test-prepare': {
+      id: '/test-prepare'
+      path: '/test-prepare'
+      fullPath: '/test-prepare'
+      preLoaderRoute: typeof TestPrepareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookIeltsRoute: BookIeltsRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  TestPrepareRoute: TestPrepareRoute,
   TestimonialsRoute: TestimonialsRoute,
   CountriesSlugRoute: CountriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
