@@ -3,12 +3,12 @@ import { Mail, Phone, ArrowRight } from "lucide-react";
 import { team } from "@/data/team";
 
 const roleColors: Record<string, string> = {
-  "Founder & CEO":                        "from-blue-600 to-blue-400",
-  "Senior Education Counsellor":          "from-violet-600 to-violet-400",
-  "Australia & New Zealand Specialist":   "from-emerald-600 to-emerald-400",
-  "IELTS & PTE Lead Trainer":             "from-amber-500 to-amber-400",
-  "Documentation & SOP Specialist":       "from-rose-600 to-rose-400",
-  "Student Relations & Front Office":     "from-teal-600 to-teal-400",
+  "Founder & CEO":                  "from-primary to-blue-400",
+  "Academic Head":                  "from-blue-600 to-blue-400",
+  "Documentation & Finance Officer":"from-amber-500 to-amber-400",
+  "Finance Advisor":                "from-emerald-600 to-emerald-400",
+  "Marketing Officer":              "from-rose-500 to-rose-400",
+  "Customer Relations Executive":   "from-violet-600 to-violet-400",
 };
 
 function roleGradient(role: string) {

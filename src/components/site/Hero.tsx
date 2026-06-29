@@ -18,18 +18,18 @@ import suzitaRana from "@/assets/success_stories/Suzita Rana.jpeg";
 import tonyaGurung from "@/assets/success_stories/Tonya Gurung.jpeg";
 
 const successStories = [
-  { name: "Aasha Gurung", country: "United Kingdom", img: aashaGurung },
-  { name: "Aashis Thapa Magar", country: "United Kingdom", img: aashisThapaMagar },
-  { name: "Anisha Chhetri", country: "United Kingdom", img: anishaChhetri },
-  { name: "Ashmita Thapa Magar", country: "United Kingdom", img: ashmitaThapaMagar },
-  { name: "Bijaya Thapa Magar", country: "United Kingdom", img: bijayaThapaMagar },
-  { name: "Bishal Thapa", country: "United Kingdom", img: bishalThapa },
-  { name: "Lejina Thapa Chetri", country: "United Kingdom", img: lejinaThapaChetri },
-  { name: "Ruban Shrestha", country: "United Kingdom", img: rubanShrestha },
-  { name: "Rupesh Shrestha", country: "United Kingdom", img: rupeshShrestha },
-  { name: "Shiva Kumal", country: "United Kingdom", img: shivaKumal },
-  { name: "Suzita Rana", country: "United Kingdom", img: suzitaRana },
-  { name: "Tonya Gurung", country: "United Kingdom", img: tonyaGurung },
+  { name: "Aasha Gurung", img: aashaGurung },
+  { name: "Aashis Thapa Magar", img: aashisThapaMagar },
+  { name: "Anisha Chhetri", img: anishaChhetri },
+  { name: "Ashmita Thapa Magar", img: ashmitaThapaMagar },
+  { name: "Bijaya Thapa Magar", img: bijayaThapaMagar },
+  { name: "Bishal Thapa", img: bishalThapa },
+  { name: "Lejina Thapa Chetri", img: lejinaThapaChetri },
+  { name: "Ruban Shrestha", img: rubanShrestha },
+  { name: "Rupesh Shrestha", img: rupeshShrestha },
+  { name: "Shiva Kumal", img: shivaKumal },
+  { name: "Suzita Rana", img: suzitaRana },
+  { name: "Tonya Gurung", img: tonyaGurung },
 ];
 
 type UniHit = { uni: string; countryName: string; slug: string };
@@ -200,19 +200,13 @@ export function Hero() {
 
             {/* Success stories carousel */}
             <div className="mt-10">
-              <p
-                className="text-2xl md:text-3xl text-foreground/85 mb-4"
-                style={{ fontFamily: "'Caveat', cursive" }}
-              >
-                Our success stories
-              </p>
               <div className="flex items-center justify-center lg:justify-start gap-4 md:gap-5">
                 {visible.map((s) => (
                   <div key={s.name} className="group flex flex-col items-center animate-fade-in-up">
                     <div className="relative">
                       <img
                         src={s.img}
-                        alt={`${s.name} — settled in ${s.country}`}
+                        alt={s.name}
                         loading="lazy"
                         width={120}
                         height={120}
@@ -220,7 +214,6 @@ export function Hero() {
                       />
                     </div>
                     <span className="mt-2 text-xs font-bold text-foreground/80 text-center leading-tight">{s.name}</span>
-                    <span className="text-[10px] text-primary/70 font-medium">{s.country}</span>
                   </div>
                 ))}
               </div>

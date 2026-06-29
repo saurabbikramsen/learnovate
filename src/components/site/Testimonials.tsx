@@ -25,29 +25,29 @@ const rowOne: T[] = [
   },
   {
     name: "Aashis Thapa Magar",
-    country: "Settled in United Kingdom",
-    text: "I had applied once before and got rejected. Learnovate rebuilt my file properly, guided me through the TB test and biometrics, and my UK visa was approved within weeks.",
+    country: "Studying in Australia",
+    text: "Learnovate guided me through the Australian student visa process with incredible precision. From university selection to the health examination, everything was handled professionally. I'm now studying in Australia and couldn't be happier.",
     rating: 5,
     avatar: aashisThapaMagar,
   },
   {
     name: "Anisha Chhetri",
     country: "Settled in United Kingdom",
-    text: "The counsellors at Learnovate are genuinely invested in your success. They helped me choose the right university for my career goals and prepared me for the visa interview.",
+    text: "The counsellors at Learnovate are genuinely invested in your success. They helped me choose the right university for my career goals and prepared me for every step of the UK visa process.",
     rating: 5,
     avatar: anishaChhetri,
   },
   {
     name: "Ashmita Thapa Magar",
-    country: "Settled in United Kingdom",
-    text: "Transparent process, zero false promises. I knew exactly what was happening at every stage. Learnovate's honesty made the entire UK application journey stress-free.",
+    country: "Studying in Canada",
+    text: "Canada felt overwhelming to navigate alone. Learnovate matched me to the right college, prepared every document perfectly, and got my study permit approved. Transparent from day one — zero false promises.",
     rating: 5,
     avatar: ashmitaThapaMagar,
   },
   {
     name: "Bijaya Thapa Magar",
     country: "Settled in United Kingdom",
-    text: "From the very first free counselling session, I felt confident I was in the right hands. Now I'm settled in the UK thanks to the team's relentless support.",
+    text: "From the very first free counselling session, I felt confident I was in the right hands. Now I'm settled in the UK thanks to the team's relentless support and deep knowledge of the process.",
     rating: 5,
     avatar: bijayaThapaMagar,
   },
@@ -64,42 +64,42 @@ const rowTwo: T[] = [
   {
     name: "Lejina Thapa Chetri",
     country: "Settled in United Kingdom",
-    text: "Learnovate handled my documentation meticulously — bank statements, police clearance, TB test — everything was perfect. UK visa came through without a single query.",
+    text: "Learnovate handled my documentation meticulously — bank statements, police clearance, TB test — everything was perfect. UK visa came through without a single query letter.",
     rating: 5,
     avatar: lejinaThapaChetri,
   },
   {
     name: "Ruban Shrestha",
-    country: "Settled in United Kingdom",
-    text: "The pre-departure briefing sessions Learnovate runs are incredibly helpful. I arrived in the UK knowing exactly what to expect — accommodation, registration, everything.",
+    country: "Studying in Australia",
+    text: "The pre-departure orientation Learnovate ran was incredibly detailed. I arrived in Australia knowing exactly what to expect — accommodation, how to open a bank account, everything. They prepare you for life, not just the visa.",
     rating: 5,
     avatar: rubanShrestha,
   },
   {
     name: "Rupesh Shrestha",
     country: "Settled in United Kingdom",
-    text: "I was skeptical at first, but Learnovate delivered on every promise. My university offer, CAS letter and visa all came through smoothly. Highly recommend to anyone.",
+    text: "I was skeptical at first, but Learnovate delivered on every promise. My university offer, CAS letter and visa all came through smoothly. Highly recommend to anyone planning to study in the UK.",
     rating: 5,
     avatar: rupeshShrestha,
   },
   {
     name: "Shiva Kumal",
-    country: "Settled in United Kingdom",
-    text: "What sets Learnovate apart is that they stay with you even after your visa is approved. Their post-departure support helped me settle into UK student life effortlessly.",
+    country: "Studying in New Zealand",
+    text: "I had no idea New Zealand was such a great fit for my field. Learnovate opened my eyes to the opportunity and managed the entire application. Now I'm studying in Christchurch with a clear pathway to PR.",
     rating: 5,
     avatar: shivaKumal,
   },
   {
     name: "Suzita Rana",
     country: "Settled in United Kingdom",
-    text: "Choosing Learnovate was the best decision of my academic journey. Professional, prompt, and genuinely caring — they treated my visa file as if it were their own.",
+    text: "Choosing Learnovate was the best decision of my academic journey. Professional, prompt, and genuinely caring — they treated my UK visa file as if it were their own.",
     rating: 5,
     avatar: suzitaRana,
   },
   {
     name: "Tonya Gurung",
-    country: "Settled in United Kingdom",
-    text: "From career counselling to the day I landed at Heathrow, Learnovate was with me every step. Their IELTS coaching and SOP review made all the difference.",
+    country: "Studying in Japan",
+    text: "Japan felt like an impossible dream from Pokhara. Learnovate connected me with the right institution, handled my COE application, and made the whole process surprisingly smooth. Now I'm in Tokyo living a new life.",
     rating: 5,
     avatar: tonyaGurung,
   },
@@ -156,7 +156,7 @@ export function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-foreground">
             Student <span className="text-primary">Success Stories</span>
           </h2>
-          <p className="text-muted-foreground text-lg">Real journeys from students who are now settled and thriving in the UK.</p>
+          <p className="text-muted-foreground text-lg">Real journeys from students now settled and thriving across the UK, Australia, Canada, New Zealand, Japan and beyond.</p>
         </div>
       </div>
       <div className="space-y-5">
