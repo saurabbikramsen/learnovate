@@ -1,14 +1,14 @@
-import { Link } from "@tanstack/react-router";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { team } from "@/data/team";
 
 const roleColors: Record<string, string> = {
-  "Founder & CEO":                  "from-primary to-blue-400",
-  "Academic Head":                  "from-blue-600 to-blue-400",
-  "Documentation & Finance Officer":"from-amber-500 to-amber-400",
-  "Finance Advisor":                "from-emerald-600 to-emerald-400",
-  "Marketing Officer":              "from-rose-500 to-rose-400",
-  "Customer Relations Executive":   "from-violet-600 to-violet-400",
+  "Founder & CEO":                   "from-primary to-blue-400",
+  "Academic Head":                   "from-blue-600 to-blue-400",
+  "Documentation & Finance Officer": "from-amber-500 to-amber-400",
+  "Finance Advisor":                 "from-emerald-600 to-emerald-400",
+  "Marketing Officer":               "from-rose-500 to-rose-400",
+  "Customer Relations Executive":    "from-violet-600 to-violet-400",
+  "IT Officer":                      "from-cyan-600 to-cyan-400",
 };
 
 function roleGradient(role: string) {
@@ -32,11 +32,9 @@ export function Team() {
           {team.map((m) => {
             const grad = roleGradient(m.role);
             return (
-              <Link
+              <div
                 key={m.slug}
-                to="/team/$slug"
-                params={{ slug: m.slug }}
-                className="group overflow-hidden rounded-2xl bg-card border border-border shadow-card hover-lift block relative"
+                className="group overflow-hidden rounded-2xl bg-card border border-border shadow-card hover-lift relative"
               >
                 {/* Colored top accent */}
                 <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${grad}`} />
@@ -72,12 +70,8 @@ export function Team() {
                     <div className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-primary/60 shrink-0" /> {m.phone}</div>
                     <div className="flex items-center gap-2"><Mail className="h-3.5 w-3.5 text-primary/60 shrink-0" /> {m.email}</div>
                   </div>
-
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                    View profile <ArrowRight className="h-4 w-4" />
-                  </span>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

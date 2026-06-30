@@ -18,7 +18,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeamIndexRouteImport } from './routes/team.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as CountriesIndexRouteImport } from './routes/countries.index'
-import { Route as TeamSlugRouteImport } from './routes/team.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as CountriesSlugRouteImport } from './routes/countries.$slug'
 
@@ -67,11 +66,6 @@ const CountriesIndexRoute = CountriesIndexRouteImport.update({
   path: '/countries/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeamSlugRoute = TeamSlugRouteImport.update({
-  id: '/team/$slug',
-  path: '/team/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/services/$slug',
   path: '/services/$slug',
@@ -92,7 +86,6 @@ export interface FileRoutesByFullPath {
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
   '/countries/': typeof CountriesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/team/': typeof TeamIndexRoute
@@ -106,7 +99,6 @@ export interface FileRoutesByTo {
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
   '/countries': typeof CountriesIndexRoute
   '/services': typeof ServicesIndexRoute
   '/team': typeof TeamIndexRoute
@@ -121,7 +113,6 @@ export interface FileRoutesById {
   '/testimonials': typeof TestimonialsRoute
   '/countries/$slug': typeof CountriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/team/$slug': typeof TeamSlugRoute
   '/countries/': typeof CountriesIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/team/': typeof TeamIndexRoute
@@ -137,7 +128,6 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
-    | '/team/$slug'
     | '/countries/'
     | '/services/'
     | '/team/'
@@ -151,7 +141,6 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
-    | '/team/$slug'
     | '/countries'
     | '/services'
     | '/team'
@@ -165,7 +154,6 @@ export interface FileRouteTypes {
     | '/testimonials'
     | '/countries/$slug'
     | '/services/$slug'
-    | '/team/$slug'
     | '/countries/'
     | '/services/'
     | '/team/'
@@ -180,7 +168,6 @@ export interface RootRouteChildren {
   TestimonialsRoute: typeof TestimonialsRoute
   CountriesSlugRoute: typeof CountriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
-  TeamSlugRoute: typeof TeamSlugRoute
   CountriesIndexRoute: typeof CountriesIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   TeamIndexRoute: typeof TeamIndexRoute
@@ -251,13 +238,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CountriesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/team/$slug': {
-      id: '/team/$slug'
-      path: '/team/$slug'
-      fullPath: '/team/$slug'
-      preLoaderRoute: typeof TeamSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/services/$slug'
@@ -284,7 +264,6 @@ const rootRouteChildren: RootRouteChildren = {
   TestimonialsRoute: TestimonialsRoute,
   CountriesSlugRoute: CountriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
-  TeamSlugRoute: TeamSlugRoute,
   CountriesIndexRoute: CountriesIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   TeamIndexRoute: TeamIndexRoute,

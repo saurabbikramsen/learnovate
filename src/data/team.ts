@@ -1,6 +1,7 @@
 import bikalpaPhoto   from "@/assets/bikalpa-kc(founder- CEO).jpg";
 import taraBahadurKC  from "@/assets/Teams/Tara Bahadur Kc(Acedemic head, IELTS and PTE Instructor).jpeg";
 import taraMagar      from "@/assets/Teams/Tara Magar(Documentation and finance Officer).jpeg";
+import saurabBikramSen from "@/assets/Teams/Saurab Bikram Sen(Technical Officer).jpg";
 import deepakKunwar   from "@/assets/Teams/Deepak Kunwar (Finance Advisor).jpeg";
 import pradeeptiKC    from "@/assets/Teams/Pradeepti KC(Marketing Officer).jpeg";
 import dipikaRoka     from "@/assets/Teams/Dipika Roka (Customer Relations Executive).jpeg";
@@ -77,6 +78,18 @@ export const team: TeamMember[] = [
     bio: "Pradeepti leads Learnovate's outreach and brand presence across digital and offline channels. From social media campaigns to educational seminars and school visits, she ensures students across Nepal know the opportunities available to them through Learnovate.",
     expertise: ["Digital Marketing", "Social Media", "Event Coordination", "Brand Strategy"],
     education: "BBA — Marketing",
+    languages: ["English", "Nepali"],
+  },
+  {
+    slug: "saurab-bikram-sen",
+    name: "Saurab Bikram Sen",
+    role: "IT Officer",
+    email: "saurab@learnovate.com.np",
+    phone: "+977 9818765432",
+    photo: saurabBikramSen,
+    bio: "Saurab manages Learnovate's digital infrastructure — from the website and student portal to internal systems that keep operations running smoothly. He brings a software engineering background to build tools that make the counselling process faster and more transparent for students.",
+    expertise: ["Web Development", "Digital Systems", "Student Portal", "Tech Operations"],
+    education: "BSc — Computer Science & Engineering",
     languages: ["English", "Nepali"],
   },
   {
